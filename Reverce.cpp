@@ -12,25 +12,13 @@ void Reverse (vector<int>& v){
         tmp = v[i];
         v[i] = v[v.size()-i -1];
         v[v.size()-i-1] = tmp;
-    }
-    
+    }    
 }
-
-vector<int> Reversed(const vector<int>& v){
-    vector<int> w;
-    
-    w=v;
-    Reverse(w);
-    
-    return w;
-
-}
-
 
 int main(){
     
     vector<int> v;
-    Reversed(v);
+    Reverse(v);
     
     return 0;
 }
