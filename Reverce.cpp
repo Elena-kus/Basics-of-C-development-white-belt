@@ -17,8 +17,8 @@ void Reverse (vector<int>& v){
 
 int main(){
     
-    vector<int> v;
+    vector<int> v = {1, 5, 3, 4, 2};
     Reverse(v);
-    
+        
     return 0;
 }
