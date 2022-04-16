@@ -48,6 +48,21 @@ public:
               return first_name + " " + last_name;
   }
   
+  string GetFullNameWithHistory(int year) const {
+    
+   const string first_name = FindAllNameByYear(first_names, year);
+   const string last_name = FindAllNameByYear(last_names, year);
+    
+   if (first_name.empty() && last_name.empty())
+     return "No person";	    
+    else if (first_name.empty())
+          return last_name + " with unknown first name";
+         else if (last_name.empty()) {
+	            return first_name + " with unknown last name";
+              else
+              return first_name + " " + last_name;
+  }
+  
   private:
     map<int, string> first_names;
     map<int, string> last_names;
@@ -73,6 +88,13 @@ int main() {
   for (int year : {1969, 1970}) {
     cout << person.GetFullName(year) << endl;
   }
+  
+  person.ChangeFirstName(1900, "Evgenia");
+  person.ChangeLastName(1900, "Sokolova");
+  person.ChangeLastName(1910, "Sokolova");
+  person.ChangeFirstName(1920, "Evgenia");
+  person.ChangeLastName(1930, "Sokolova");
+  cout << person.GetFullNameWithHistory(1940) << endl;
   
   return 0;
 }
