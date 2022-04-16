@@ -20,8 +20,12 @@ string FindNameByYear(const map<int, string>& names, int year) {
 
 class Person {
 public:
-  
-  Person(){}
+
+Person (const string& name, const string &so_name, const int& year){
+		first_names[year] = name;
+		last_names[year] = so_name;
+		b_day = year;
+}
   
   void ChangeFirstName(int year, const string& first_name) {
       if ( year >= first_names.begin()->first )
@@ -71,10 +75,8 @@ public:
 
 int main() {
 
-  Person person;
-
-  person.ChangeFirstName(1965, "Polina");
-  person.ChangeLastName(1967, "Sergeeva");
+  Person person("Polina", "Sergeeva", 1960);
+	
   for (int year : {1900, 1965, 1990}) {
     cout << person.GetFullName(year) << endl;
   }
